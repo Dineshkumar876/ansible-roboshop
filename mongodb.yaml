@@ -1,5 +1,5 @@
  - name: MongoDB
-   hosts: frontend
+   hosts: mongodb
    become: yes
    tasks:
    - name: copy mongodb.repo
