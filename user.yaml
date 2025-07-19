@@ -34,6 +34,7 @@
     ansible.builtin.unarchive:
       src: /app
       dest: /tmp/user.zip
+      remote_src: true
 
   - name: Install package
     community.general.npm:
