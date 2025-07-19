@@ -25,7 +25,7 @@
       path: /app
       state: directory
 
-  - name: POST from contents of remote file
+  - name: download user code
     ansible.builtin.uri:
       url: https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip 
       dest: /tmp/user.zip
