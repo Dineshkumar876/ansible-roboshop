@@ -30,10 +30,10 @@
       url: https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip 
       dest: /tmp/user.zip
 
-  - name: Extract application 
+  - name: extract catalogue code
     ansible.builtin.unarchive:
-      src: /app
-      dest: /tmp/user.zip
+      src: /tmp/catalogue.zip
+      dest: /app
       remote_src: yes
 
   - name: Install package
