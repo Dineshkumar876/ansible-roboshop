@@ -31,7 +31,7 @@
     
   - name: Download the frontend
     ansible.builtin.uri:
-      url: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
+      curl: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
       dest: /tmp/frontend.zip
 
   - name: Unarchive a file that is already on the remote machine
