@@ -62,8 +62,8 @@
     
   - name: install mongodb client
     ansible.builtin.dnf:
-    name:  mongodb-mongosh
-    statte: present
-    
+      name:  mongodb-mongosh
+      statte: present
+
     
 
