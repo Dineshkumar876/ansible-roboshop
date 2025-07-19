@@ -25,7 +25,7 @@
       system: yes
       home: /app
 
-  - name: POST from contents of local file
+  - name: download catalogue code
     ansible.builtin.uri:
       url: https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip 
       src: /tmp/catalogue.zip
