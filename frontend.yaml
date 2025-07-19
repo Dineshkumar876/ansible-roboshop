@@ -13,15 +13,11 @@
       name: nginx
       state: present
 
-  - name: systemctl enable nginx
-    ansible.builtin.service:
-      name: nginx
-      enabled: yes
-
-  - name: systemctl start nginx
+  - name: start and enable nginx
     ansible.builtin.service:
       name: nginx
       state: started
+      enabled: yes
 
   - name: Recursively remove 
     ansible.builtin.file:
