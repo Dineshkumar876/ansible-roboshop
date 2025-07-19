@@ -13,7 +13,7 @@
       name: nodejs
       state: present
 
-  - name: Aroboshop system user
+  - name: roboshop system user
     ansible.builtin.user:
       name: roboshop
       shell: /sbin/nologin
@@ -26,16 +26,17 @@
       state: directory
 
 
-  - name: POST from contents of remote file
+  - name: download cart code
     ansible.builtin.uri:
       url: https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip
-      src: /tmp/cart.zip
-      remote_src: true
+      dest: /tmp/cart.zip
+      
 
   - name: Extract foo.tgz into /var/lib/foo
     ansible.builtin.unarchive:
       src: /tmp/cart.zip
       dest: /app
+      remote_src: yes
       
 
   - name: Install npm
