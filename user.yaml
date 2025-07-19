@@ -51,7 +51,7 @@
 
   - name: start and enable user
     ansible.builtin.service:
-      name: redis
+      name: user
       state: started
       enabled: yes
 
