@@ -13,11 +13,15 @@
       name: nginx
       state: present
 
-  - name: start and enable nginx
+  - name: systemctl enable nginx
+    ansible.builtin.service:
+      name: nginx
+      enabled: yes
+
+  - name: systemctl start nginx
     ansible.builtin.service:
       name: nginx
       state: started
-      enabled: yes
 
   - name: Recursively remove 
     ansible.builtin.file:
@@ -50,11 +54,10 @@
       src: nginx.conf
       dest: /etc/nginx/nginx.conf
 
-  - name: restart nginx 
+  - name: systemctl restart nginx 
     ansible.builtin.service:
       name: nginx
       state: restarted
-
 
 
 
