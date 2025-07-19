@@ -28,8 +28,7 @@
   - name: POST from contents of remote file
     ansible.builtin.uri:
       url: https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip 
-      src: /tmp/user.zip
-      remote_src: true
+      dest: /tmp/user.zip
 
   - name: Extract application 
     ansible.builtin.unarchive:
