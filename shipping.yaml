@@ -19,7 +19,7 @@
        path: /app
        state: directory
 
-   - name: Download the shipping
+   - name: download the shipping
      ansible.builtin.uri:
        url: https://roboshop-artifacts.s3.amazonaws.com/shipping-v3.zip 
        src: /tmp/shipping.zip
