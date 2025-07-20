@@ -3,8 +3,8 @@
   become: yes
   tasks:
   - name: install python3 gcc server
-    ansible.builtin.package:
-      name: {{ item }}
+    ansible.builtin.dnf:
+      name: "{{ item }}"
       state: installed
     loop:
     - python3
