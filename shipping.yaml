@@ -34,4 +34,45 @@
      ansible.builtin.package:
        name: maven
        state: installed
+
+   - name: rename jar file
+     ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar
+     args:
+       chdir: /app
+
+   - name: Copy Shipping Service
+     ansible.builtin.copy:
+       src: shipping.service
+       dest: /etc/systemd/system/shipping.service
+   
+   - name: systemctl daemon-reload
+     ansible.builtin.systemd_service:
+      daemon_reload: true
+
+   - name: start and enable user
+     ansible.builtin.service:
+       name: user
+       state: started
+       enabled: yes
+
+   - name: import data
+     community.mysql.mysql_db:
+       name: all
+       login_user: root
+       login_password: RoboShop@1
+       login_host: mysql.daws84s.site
+       state: import
+       target: "{{ item }}"
+     loop:
+     - /app/db/schema.sql
+     - /app/db/app-user.sql
+     - /app/db/master-data.sql
+
+   - name: restart shipping
+     ansible.builtin.service:
+       state: restarted
+       name: shipping
+
+
+
     
