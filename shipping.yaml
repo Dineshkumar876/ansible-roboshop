@@ -31,7 +31,8 @@
      remote_src: yes
 
    - name: Install maven
-     ansible.builtin.package:
-      name: maven
-      state: installed
+     ansible.builtin.command: mvn clean package
+     args:
+      chdir: /app
+      
     
